@@ -11,9 +11,9 @@
       />
       <div class="status-check">
         <p>Filter By Status</p>
-        <input type="radio" id="all" value="" v-model="status" @click="updateSearch"/>All
-        <input type="radio" id="available" value="available" v-model="status" @click="updateSearch"/>Available
-        <input type="radio" id="borrowed" value="borrowed" v-model="status" @click="updateSearch" />Borrowed
+        <input type="radio" id="all" value="all" v-model="status" @change="updateSearch"/>All
+        <input type="radio" id="available" value="available" v-model="status" @change="updateSearch"/>Available
+        <input type="radio" id="borrowed" value="borrowed" v-model="status" @change="updateSearch" />Borrowed
       </div>
       <button class="reset-btn" @click="ResetFilters">Reset Filters</button>
     </div>
@@ -27,7 +27,7 @@ export default {
     return {
       books: [],
       SearchQuery: "",
-      status: "",
+      status: "all",
     };
   },
 
@@ -50,20 +50,20 @@ export default {
         const matchSearch = book.titre.toLowerCase().includes(this.SearchQuery.toLowerCase()) ||
                           book.auteur.toLowerCase().includes(this.SearchQuery.toLowerCase());
         
-        if (this.status === "available") {
-          return matchSearch && book.disponible === true;
-        } else if (this.status === "borrowed") {
-          return matchSearch && book.disponible === false;
-        }
-        return matchSearch;
+        const isAvailable = this.status === "available" && book.disponible === true;
+        const isBorrowed = this.status === "borrowed" && book.disponible === false;
+        const isAll = this.status === "all";
+
+        return matchSearch && (isAvailable || isBorrowed || isAll);
       });
 
       this.$emit("filtered-books", filtered);
     },
     ResetFilters() {
       this.SearchQuery = "";
-      this.status = "";
+      this.status = "all";
       this.applyFilters();
+      // Reload page
       this.$router.go();
     }
   },
