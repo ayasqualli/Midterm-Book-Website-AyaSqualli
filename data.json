@@ -1,0 +1,84 @@
+{
+  "books": [
+    {
+      "id": "1",
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "publication_year": 1960,
+      "category": "Fiction",
+      "status": "available"
+    },
+    {
+      "id": "2",
+      "title": "1984",
+      "author": "George Orwell",
+      "publication_year": 1949,
+      "category": "Dystopian",
+      "status": "borrowed"
+    },
+    {
+      "id": "3",
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "publication_year": 1925,
+      "category": "Classic",
+      "status": "available"
+    },
+    {
+      "id": "4",
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "publication_year": 1813,
+      "category": "Romance",
+      "status": "available"
+    },
+    {
+      "id": "5",
+      "title": "The Catcher in the Rye",
+      "author": "J.D. Salinger",
+      "publication_year": 1951,
+      "category": "Coming-of-age",
+      "status": "borrowed"
+    },
+    {
+      "id": "6",
+      "title": "The Hobbit",
+      "author": "J.R.R. Tolkien",
+      "publication_year": 1937,
+      "category": "Fantasy",
+      "status": "available"
+    },
+    {
+      "id": "7",
+      "title": "Fahrenheit 451",
+      "author": "Ray Bradbury",
+      "publication_year": 1953,
+      "category": "Science Fiction",
+      "status": "available"
+    },
+    {
+      "id": "8",
+      "title": "Moby-Dick",
+      "author": "Herman Melville",
+      "publication_year": 1851,
+      "category": "Adventure",
+      "status": "borrowed"
+    },
+    {
+      "id": "9",
+      "title": "The Lord of the Rings",
+      "author": "J.R.R. Tolkien",
+      "publication_year": 1954,
+      "category": "Fantasy",
+      "status": "available"
+    },
+    {
+      "id": "10",
+      "title": "Jane Eyre",
+      "author": "Charlotte Brontë",
+      "publication_year": 1847,
+      "category": "Gothic Fiction",
+      "status": "available"
+    }
+  ]
+}

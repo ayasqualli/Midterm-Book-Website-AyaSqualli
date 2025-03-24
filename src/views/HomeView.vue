@@ -1,18 +1,38 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="home-view">
+    <Library :initialBooks="books" />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Library from "@/components/Library.vue";
 
 export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
+  name: "HomeView",
+  components: { Library },
+  data() {
+    return {
+      books: []
+    };
+  },
+  async created() {
+    try {
+      const response = await fetch('http://localhost:3000/livres');
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      this.books = await response.json();
+    } catch (error) {
+      console.error('Error fetching books:', error);
+    }
   }
-}
+};
 </script>
+
+<style scoped>
+.home-view {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+</style>
